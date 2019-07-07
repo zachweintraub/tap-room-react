@@ -1,8 +1,12 @@
 import React from 'react';
+import Header from './Header';
 
 function EmployeeLogin() {
     return(
-        <p>Employee login works!</p>
+        <div>
+            <Header/>
+            <p>Employee login works!</p>
+        </div>
     );
 }
 
