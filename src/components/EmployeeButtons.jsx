@@ -2,10 +2,10 @@ import React from 'react';
 
 function EmployeeButtons() {
     return (
-        <div>
+        <td>
             <button>Sell Pint</button>
             <button>Edit</button>
-        </div>
+        </td>
     );
 }
 

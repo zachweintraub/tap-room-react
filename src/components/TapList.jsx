@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Keg from './Keg';
-import EmployeeButtons from './EmployeeButtons';
+import ReplaceSoon from './ReplaceSoon';
 import { kegList } from '../kegs';
 
 function TapList(props) {
@@ -12,26 +12,33 @@ function TapList(props) {
                 <Header/>
                 <h2>Currently On Tap</h2>
                 <table>
-                    <tr>
-                        <th>Brewer</th>
-                        <th>Name</th>
-                        <th>ABV</th>
-                        <th>Price</th>
-                        <th>Pints Remaining</th>
-                    </tr>
-                    {kegList.map((keg, index) =>
-                        <div key={index}>
+                    <tbody>
+                        <tr>
+                            <th>Brewer</th>
+                            <th>Name</th>
+                            <th>ABV</th>
+                            <th>Price</th>
+                            <th>Pints Remaining</th>
+                            <th>Actions</th>
+                        </tr>
+                        {kegList.map((keg, index) =>
                             <Keg
                                 name={keg.name}
                                 brewer={keg.brewer}
                                 abv={keg.abv}
                                 price={keg.pintPrice}
                                 remaining={keg.remainingPints}
+                                isAdmin={true}
+                                key={index}
                             />
-                            <EmployeeButtons/>
-                        </div>
-                    )}
+                        )}
+                    </tbody>
                 </table>
+                <ReplaceSoon
+                    replaceList = {kegList.filter(keg => 
+                        keg.remainingPints <= 10
+                    )}
+                />
             </div>
         );
     } else return (
@@ -39,23 +46,26 @@ function TapList(props) {
             <Header/>
             <h2>Currently On Tap</h2>
             <table>
-                <tr>
-                    <th>Brewer</th>
-                    <th>Name</th>
-                    <th>ABV</th>
-                    <th>Price</th>
-                    <th>Pints Remaining</th>
-                </tr>
-                {kegList.map((keg, index) =>
-                    <Keg
-                        name={keg.name}
-                        brewer={keg.brewer}
-                        abv={keg.abv}
-                        price={keg.pintPrice}
-                        remaining={keg.remainingPints}
-                        key={index}
-                    />
-                )}
+                <tbody>
+                    <tr>
+                        <th>Brewer</th>
+                        <th>Name</th>
+                        <th>ABV</th>
+                        <th>Price</th>
+                        {/* <th>Pints Remaining</th> */}
+                    </tr>
+                    {kegList.map((keg, index) =>
+                        <Keg
+                            name={keg.name}
+                            brewer={keg.brewer}
+                            abv={keg.abv}
+                            price={keg.pintPrice}
+                            remaining={keg.remainingPints}
+                            isAdmin={false}
+                            key={index}
+                        />
+                    )}
+                </tbody>
             </table>
         </div>
     );

@@ -3,7 +3,10 @@ import Header from './Header';
 
 function Home() {
     return(
-        <Header/>
+        <div>
+            <Header/>
+            <p>Welcome to Zach's taproom.</p>
+        </div>
     );
 }
 
