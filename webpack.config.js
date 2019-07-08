@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
 
@@ -62,7 +63,7 @@ module.exports = {
                         "styled-jsx/babel"
                     ]
                 }
-            }
+            },
         ]
     },
 
@@ -75,6 +76,9 @@ module.exports = {
                 title: 'Tap Room',
                 filename: resolve(__dirname, "build", "index.html")
             }
-        )
+        ),
+        new CopyWebpackPlugin([
+            {from:'src/assets/img',to:'img'}
+        ])
     ]
 };

@@ -7,6 +7,12 @@ import TapList from './TapList';
 function App() {
     return (
         <div>
+            <style jsx global>{`
+                body {
+                    background: black;
+                    color: white;
+                }
+            `}</style>
             <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path='/tap-list' component={TapList} isAdmin false />
