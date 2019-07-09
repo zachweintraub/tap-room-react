@@ -11,7 +11,9 @@ function Keg(props) {
                 <td>{props.abv}%</td>
                 <td>${props.price}</td>
                 <td>{props.remaining}</td>
-                <EmployeeButtons/>
+                <EmployeeButtons
+                    onClickSell={props.onClickSell}
+                    thisId={props.thisId}/>
             </tr>
         );
     } else {
@@ -33,7 +35,9 @@ Keg.propTypes = {
     abv: PropTypes.number,
     price: PropTypes.number,
     remaining: PropTypes.number,
-    isAdmin: PropTypes.bool
+    isAdmin: PropTypes.bool,
+    onClickSell: PropTypes.func,
+    thisId: PropTypes.number
 };
 
 export default Keg;
