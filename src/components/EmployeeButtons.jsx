@@ -7,17 +7,23 @@ function EmployeeButtons(props) {
     function handleClickSell() {
         props.onClickSell(props.thisId);
     }
-
-    return (
-        <td>
-            <button onClick={handleClickSell}>Sell Pint</button>
-            <button>Edit</button>
-        </td>
-    );
+    if(props.remaining > 0) {
+        return (
+            <td>
+                <button onClick={handleClickSell}>Sell Pint</button>
+                <button>Edit</button>
+            </td>
+        );
+    } else {
+        return (
+            <td>
+                <button>Edit</button>
+            </td>
+        );
+    }
 }
 
 EmployeeButtons.propTypes = {
-    key: PropTypes.number,
     onClickSell: PropTypes.func,
     thisId: PropTypes.number
 };

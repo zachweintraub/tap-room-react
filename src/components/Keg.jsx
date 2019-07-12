@@ -13,7 +13,8 @@ function Keg(props) {
                 <td>{props.remaining}</td>
                 <EmployeeButtons
                     onClickSell={props.onClickSell}
-                    thisId={props.thisId}/>
+                    thisId={props.thisId}
+                    remaining={props.remaining}/>
             </tr>
         );
     } else {
