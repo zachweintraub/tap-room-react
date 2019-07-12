@@ -28,6 +28,7 @@ class App extends Component {
             addingNewKeg: false
         };
         this.handleClickSell = this.handleClickSell.bind(this);
+        this.handleClickDelete = this.handleClickDelete.bind(this);
         this.handleAddNewKeg = this.handleAddNewKeg.bind(this);
         this.handleCancelAddNewKeg = this.handleCancelAddNewKeg.bind(this);
         this.handleSaveNewKeg = this.handleSaveNewKeg.bind(this);
@@ -53,6 +54,12 @@ class App extends Component {
         this.setState({kegList: newKegList, addingNewKeg: false});
     }
 
+    handleClickDelete(id) {
+        let newKegList = this.state.kegList;
+        newKegList.splice(id, 1);
+        this.setState({kegList: newKegList});
+    }
+
     render() {
         return (
             <div>
@@ -71,6 +78,7 @@ class App extends Component {
                         kegList={this.state.kegList}
                         addingNewKeg={this.state.addingNewKeg}
                         onClickSell={this.handleClickSell}
+                        onClickDelete={this.handleClickDelete}
                         onAddNewKeg={this.handleAddNewKeg}
                         onCancelAddNewKeg={this.handleCancelAddNewKeg}
                         onSaveNewKeg={this.handleSaveNewKeg}/>}/>

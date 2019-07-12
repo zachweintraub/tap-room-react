@@ -30,6 +30,7 @@ function TapList(props) {
                                 remaining={keg.remainingPints}
                                 isAdmin={true}
                                 onClickSell={props.onClickSell}
+                                onClickDelete={props.onClickDelete}
                                 key={index}
                                 thisId={index}
                             />
@@ -79,6 +80,7 @@ function TapList(props) {
 TapList.propTypes = {
     kegList: PropTypes.array,
     onClickSell: PropTypes.func,
+    onClickDelete: PropTypes.func,
     onAddNewKeg: PropTypes.func,
     onCancelAddNewKeg: PropTypes.func,
     onSaveNewKeg: PropTypes.func,

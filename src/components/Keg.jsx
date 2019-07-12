@@ -13,6 +13,7 @@ function Keg(props) {
                 <td>{props.remaining}</td>
                 <EmployeeButtons
                     onClickSell={props.onClickSell}
+                    onClickDelete={props.onClickDelete}
                     thisId={props.thisId}
                     remaining={props.remaining}/>
             </tr>
@@ -33,11 +34,12 @@ function Keg(props) {
 Keg.propTypes = {
     name: PropTypes.string,
     brewer: PropTypes.string,
-    abv: PropTypes.number,
-    price: PropTypes.number,
+    abv: PropTypes.any,
+    price: PropTypes.any,
     remaining: PropTypes.number,
     isAdmin: PropTypes.bool,
     onClickSell: PropTypes.func,
+    onClickDelete: PropTypes.func,
     thisId: PropTypes.number
 };
 
