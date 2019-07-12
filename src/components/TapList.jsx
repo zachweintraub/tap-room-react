@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Keg from './Keg';
 import ReplaceSoon from './ReplaceSoon';
+import NewKegControl from './NewKegControl';
 import PropTypes from 'prop-types';
 
 function TapList(props) {
@@ -13,7 +14,7 @@ function TapList(props) {
                 <table>
                     <tbody>
                         <tr>
-                            <th>Brewer</th>
+                            <th>Brewery</th>
                             <th>Name</th>
                             <th>ABV</th>
                             <th>Price</th>
@@ -35,6 +36,10 @@ function TapList(props) {
                         )}
                     </tbody>
                 </table>
+                <NewKegControl addingNewKeg={props.addingNewKeg}
+                    onAddNewKeg={props.onAddNewKeg}
+                    onCancelAddNewKeg={props.onCancelAddNewKeg}
+                    onSaveNewKeg={props.onSaveNewKeg}/>
                 <ReplaceSoon
                     replaceList = {props.kegList.filter(keg => 
                         keg.remainingPints <= 10
@@ -49,7 +54,7 @@ function TapList(props) {
             <table>
                 <tbody>
                     <tr>
-                        <th>Brewer</th>
+                        <th>Brewery</th>
                         <th>Name</th>
                         <th>ABV</th>
                         <th>Price</th>
@@ -74,7 +79,11 @@ function TapList(props) {
 TapList.propTypes = {
     kegList: PropTypes.array,
     onClickSell: PropTypes.func,
-    user: PropTypes.string
+    onAddNewKeg: PropTypes.func,
+    onCancelAddNewKeg: PropTypes.func,
+    onSaveNewKeg: PropTypes.func,
+    user: PropTypes.string,
+    addingNewKeg: PropTypes.bool
 };
 
 export default TapList;

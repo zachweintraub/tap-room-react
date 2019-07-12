@@ -25,15 +25,32 @@ class App extends Component {
                     remainingPints: 9
                 }
             ],
+            addingNewKeg: false
         };
-        this.onClickSell = this.onClickSell.bind(this);
+        this.handleClickSell = this.handleClickSell.bind(this);
+        this.handleAddNewKeg = this.handleAddNewKeg.bind(this);
+        this.handleCancelAddNewKeg = this.handleCancelAddNewKeg.bind(this);
+        this.handleSaveNewKeg = this.handleSaveNewKeg.bind(this);
     }
 
-    onClickSell(id) {
+    handleClickSell(id) {
         let newKegList = this.state.kegList;
         newKegList[id].remainingPints--;
-        console.log(newKegList[id].remainingPints);
         this.setState({kegList: newKegList});
+    }
+
+    handleAddNewKeg() {
+        this.setState({addingNewKeg: true});
+    }
+
+    handleCancelAddNewKeg() {
+        this.setState({addingNewKeg: false});
+    }
+
+    handleSaveNewKeg(newKeg) {
+        let newKegList = this.state.kegList;
+        newKegList.push(newKeg);
+        this.setState({kegList: newKegList, addingNewKeg: false});
     }
 
     render() {
@@ -47,9 +64,16 @@ class App extends Component {
                 `}</style>
                 <Switch>
                     <Route exact path='/' component={Home}/>
-                    <Route exact path='/tap-list' render={() => <TapList user="patron" kegList={this.state.kegList} onClickSell={this.onClickSell}/>} />
+                    <Route exact path='/tap-list' render={() => <TapList user="patron"
+                        kegList={this.state.kegList}/>}/>
                     <Route path='/login' component={EmployeeLogin} />
-                    <Route path='/tap-list/admin' render={() => <TapList user="employee" kegList={this.state.kegList} onClickSell={this.onClickSell}/>} />
+                    <Route path='/tap-list/admin' render={() => <TapList user="employee"
+                        kegList={this.state.kegList}
+                        addingNewKeg={this.state.addingNewKeg}
+                        onClickSell={this.handleClickSell}
+                        onAddNewKeg={this.handleAddNewKeg}
+                        onCancelAddNewKeg={this.handleCancelAddNewKeg}
+                        onSaveNewKeg={this.handleSaveNewKeg}/>}/>
                 </Switch>
             </div>
         );
