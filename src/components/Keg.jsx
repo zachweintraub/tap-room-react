@@ -25,7 +25,6 @@ function Keg(props) {
                 <td>{props.name}</td>
                 <td>{props.abv}%</td>
                 <td>${props.price}</td>
-                {/* <td>{props.remaining}</td> */}
             </tr>
         );
     }

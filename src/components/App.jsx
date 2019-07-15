@@ -9,22 +9,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            kegList: [
-                {
-                    name: 'Pale Ale',
-                    brewer: 'Fake Brewing Co.',
-                    abv: 5.2,
-                    pintPrice:5.00,
-                    remainingPints: 98
-                },
-                {
-                    name: 'IPA',
-                    brewer: 'Fake Brewing Co.',
-                    abv: 6.3,
-                    pintPrice:5.50,
-                    remainingPints: 9
-                }
-            ],
+            kegList: [],
             addingNewKeg: false
         };
         this.handleClickSell = this.handleClickSell.bind(this);
