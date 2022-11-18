@@ -15,7 +15,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.0.0",
-    "styled-jsx": "^3.2.1",
+    "styled-jsx": "^5.1.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -27,10 +27,10 @@
     "eslint": "^4.13.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-react": "^7.14.2",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "react-hot-loader": "^3.0.0-beta.7",
     "webpack": "^4.32.2",
-    "webpack-cli": "^3.3.5",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.4.1"
   }
 }
